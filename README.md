@@ -57,12 +57,44 @@ Update the following before use:
 
 ---
 
+---
 ## 🔁 Scheduling (Optional)
 
-Use Databricks Jobs or Apache Airflow to run both scripts monthly on the 10th.
+Use Databricks Jobs or Apache Airflow to run both scripts monthly.
 
 ---
 
 ## 👤 Author
 
 Harshavardhan, Oyika
+
+
+
+# Monthly Electricity Usage Report
+
+This repository automates the process of extracting electricity meter readings from MySQL, saving the results in Databricks, and distributing monthly reports via email.
+
+---
+
+## 🔧 Components
+
+| File             | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| `report_save.py` | Extracts data from MySQL, transforms it, and appends to Databricks Delta.   |
+| `mail_generate.py` | Queries the Databricks table, generates a CSV report, and emails it.     |
+
+---
+
+## 🛠️ Setup
+
+1. **Environment**:
+    - Databricks (with Delta support)
+    - Python 3.8+
+    - Spark Session on Databricks
+    - MySQL (ApsaraDB)
+
+2. **Install Libraries**:
+```bash
+pip install pandas pymysql mysql-connector-python yagmail
+
+
